@@ -25,9 +25,12 @@
           <option selected value="1">English</option>
           <option value="2">Chinese</option>
         </select>
-        <button type="button" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" id="btnCart">
           <font-awesome-icon icon="fa-solid fa-cart-arrow-down" />
-          Cart <span class="badge bg-secondary">{{ total_item }}</span>
+          Cart
+          <span class="badge bg-secondary" v-if="getCartCount !== 0">{{
+            getCartCount
+          }}</span>
         </button>
       </div>
     </div>
@@ -42,7 +45,16 @@ export default {
       total_item: 1,
     };
   },
+  computed: {
+    getCartCount() {
+      return this.$store.getters.getCartCount;
+    },
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+#btnCart {
+  width: 150px;
+}
+</style>

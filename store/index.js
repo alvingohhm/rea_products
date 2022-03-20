@@ -31,6 +31,9 @@ const createStore = () => {
       getListings(state) {
         return state.listings;
       },
+      getCartCount(state) {
+        return state.cartCount;
+      },
     },
   });
 };
