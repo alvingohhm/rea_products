@@ -7,18 +7,16 @@
           Use the dropdown selector to select listing by country.
         </p>
         <div class="input-group">
+          <label class="input-group-text" for="country_select">Country</label>
           <select
+            v-model="selectedCountry"
             class="form-select"
-            id="inputGroupSelect04"
-            aria-label="Example select with button addon"
+            id="country_select"
           >
-            <option value="0" selected>Country...</option>
-            <option value="1">Singapore</option>
-            <option value="2">HongKong</option>
+            <option value="default" selected>Choose..</option>
+            <option value="Singapore">Singapore</option>
+            <option value="Hong Kong">Hong Kong</option>
           </select>
-          <button class="btn btn-outline-secondary" type="button">
-            Search
-          </button>
         </div>
       </div>
     </section>
@@ -32,9 +30,19 @@ import EstateLists from "@/components/Estate/EstateLists.vue";
 export default {
   name: "HomePage",
   components: { EstateLists },
+  data() {
+    return {
+      selectedCountry: "default",
+    };
+  },
   computed: {
     getListings() {
-      return this.$store.getters.getListings;
+      if (this.selectedCountry === null || this.selectedCountry === "default") {
+        return this.$store.getters.getListings;
+      }
+      return this.$store.getters.getListings.filter(
+        (estate) => estate.country === this.selectedCountry
+      );
     },
   },
 };
