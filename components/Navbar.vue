@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-      <nuxt-link exact to="/" class="navbar-brand">REA</nuxt-link>
+      <nuxt-link exact to="/" class="navbar-brand"
+        >Real Estate Analytics</nuxt-link
+      >
       <button
         class="navbar-toggler"
         type="button"
