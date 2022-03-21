@@ -19,10 +19,20 @@
       <div class="card-footer">
         <h6 class="mb-2">Add Service to Cart</h6>
         <div class="d-flex justify-content-start">
-          <button type="button" class="btn btn-primary me-2">
+          <button
+            type="button"
+            class="btn btn-primary me-2"
+            @click="$emit('addCart', { id, service: 'visit' })"
+          >
             Agent Visit
           </button>
-          <button type="button" class="btn btn-primary">Agent Call</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="$emit('addCart', { id, service: 'call' })"
+          >
+            Agent Call
+          </button>
         </div>
       </div>
     </div>
