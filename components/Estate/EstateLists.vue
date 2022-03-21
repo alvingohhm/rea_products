@@ -45,7 +45,21 @@ export default {
         currency,
         country,
       };
-      payload[request.service] = true;
+      payload["service"] = request.service;
+      if (request.service === "call") {
+        if (country === "Singapore") {
+          payload["charges"] = 5;
+        } else if (country === "Hong Kong") {
+          payload["charges"] = 30;
+        }
+      } else if (request.service === "visit") {
+        if (country === "Singapore") {
+          payload["charges"] = 20;
+        } else if (country === "Hong Kong") {
+          payload["charges"] = 115;
+        }
+      }
+
       this.$store.commit("addToCart", payload);
     },
   },
