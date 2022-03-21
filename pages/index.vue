@@ -30,9 +30,6 @@ import EstateLists from "@/components/Estate/EstateLists.vue";
 export default {
   name: "HomePage",
   components: { EstateLists },
-  mounted() {
-    this.$store.commit("loadCart");
-  },
   data() {
     return {
       selectedCountry: "default",
