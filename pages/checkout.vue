@@ -3,9 +3,8 @@
     <div class="py-5 text-center">
       <h2>Checkout</h2>
       <p class="lead">
-        Below is an example form built entirely with Bootstrap’s form controls.
-        Each required form group has a validation state that can be triggered by
-        attempting to submit the form without completing it.
+        Verify your order and submit. Our Agent will contact you and direct you
+        to payment. Thanks
       </p>
     </div>
 
