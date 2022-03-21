@@ -14,6 +14,9 @@ export default {
   components: {
     Navbar,
   },
+  mounted() {
+    this.$store.commit("loadCart");
+  },
 };
 </script>
 
