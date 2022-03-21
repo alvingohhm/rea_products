@@ -3,7 +3,6 @@
     <Estate
       v-for="estate in listings"
       :key="estate.id"
-      :estate="estate"
       :id="estate.id"
       :image="estate.image"
       :property_name="estate.property_name"
@@ -21,6 +20,8 @@
 
 <script>
 import Estate from "@/components/Estate/Estate.vue";
+import millify from "millify";
+
 export default {
   name: "EstateLists",
   components: {
@@ -45,6 +46,10 @@ export default {
         currency,
         country,
       };
+      payload["price"] = millify(parseInt(payload["price"]), {
+        precision: 3,
+        lowercase: true,
+      });
       payload["service"] = request.service;
       if (request.service === "call") {
         if (country === "Singapore") {
